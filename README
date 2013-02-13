@@ -2,3 +2,7 @@
   omoikane (思兼)
 
 Turn mess into data, then attempt to make discoveries.
+
+Depends upon:
+    * Beautiful Soup 4
+    * Requests
