@@ -50,7 +50,7 @@ class DeskClerk(object):
         """Auto-fill a form "intelligently"."""
         form_url = self.base_url + form
         r = self.session.post(form_url, data)
-        print r.content
+        return r.content
 
     def repeat(self, form, repeat_field, repeat_values, static_data=None):
         """Repeatedly submit a form."""
