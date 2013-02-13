@@ -58,10 +58,12 @@ class DeskClerk(object):
             data = dict(static_data)
         else:
             data = dict()
-        for count, value in enumerate(repeat_values):
-            data.update({repeat_field: value})
-            self.submit(form, data)
-            if count < len(repeat_values) - 1:
-                time.sleep(self.cooldown)
+        def repeater():
+            for count, value in enumerate(repeat_values):
+                data.update({repeat_field: value})
+                yield self.submit(form, data)
+                if count < len(repeat_values) - 1:
+                    time.sleep(self.cooldown)
+        return repeater()
 
 
